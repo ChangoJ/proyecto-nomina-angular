@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "952133c4-93e1-4202-a3f2-6455f60dea01"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "proyecto-nomina-angular": {
+    "angular-web": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/proyecto-nomina-angular",
+            "outputPath": "dist/angular-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,9 +34,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -72,10 +79,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "proyecto-nomina-angular:build:production"
+              "browserTarget": "angular-web:build:production"
             },
             "development": {
-              "browserTarget": "proyecto-nomina-angular:build:development"
+              "browserTarget": "angular-web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +90,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "proyecto-nomina-angular:build"
+            "browserTarget": "angular-web:build"
           }
         },
         "test": {
@@ -107,5 +114,5 @@
       }
     }
   },
-  "defaultProject": "proyecto-nomina-angular"
+  "defaultProject": "angular-web"
 }
