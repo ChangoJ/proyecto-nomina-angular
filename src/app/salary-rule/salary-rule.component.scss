@@ -1,0 +1,314 @@
+nav { 
+	margin: 0px auto;
+	width: 100%;
+	background-color: #000;
+}
+ ul,ol {
+	list-style:none;
+}
+ 
+.nav li a {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	background-color: #000;
+	text-decoration:none;
+	color:#fff;
+	display:block;
+	margin: 0;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+}
+ 
+nav > ul > li a:hover {
+	background:#434343;
+}
+
+.nav > li {
+	float: left;
+}
+
+
+.nav li  ul {
+	display:none;
+	position: absolute;
+	min-width: 270px;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+}
+nav > ul > li > ul > li a:hover {
+	background:#5da5a2;
+}
+
+.nav li:hover > ul{
+	display: block;
+	z-index: 1;
+}
+
+ 
+
+ 
+nav > ul > li > a span .icon  {
+	display:block;
+	line-height:40px;
+}
+ 
+nav > ul > li > a:hover > span {
+	top:0;
+}
+
+//HEADER
+h1{
+	color:white/* #33475b;*/;
+	padding: 47px;
+	text-align: left;
+	margin-left: 35px;
+}
+
+#login-header{
+	/*margin-top: -24 !important;*/
+    margin: 0 auto;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+   	background: #2d81d8/*#80c3f3a6/* #f5f8fa/*#5eb4f1/* #53b3f3/* #ff9900fa;*/
+}
+body,html{
+    background: url("/assets/img/fondo9.jpg") ;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+     
+}
+
+#login-logo{
+	display: block;
+	margin: 0 auto;
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+}
+
+.main{
+	margin-bottom:80px;
+}
+
+
+a{
+	text-align: right;
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.subtitulo{
+	font-family: "Helvetica";
+	text-align: left;
+	text-shadow: 2px 2px #00000026;
+	border-bottom:solid 1px #00000038;
+}
+
+.login{
+	background: #fbc400;
+	padding: 52px;
+	margin: 0 auto;
+    box-sizing: border-box;
+    margin-top: 10px;;
+	border-radius: 20px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+.nominaForm{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 45px;
+	padding-right: 45px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	border-radius: 20px;
+	background: #fbc400;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+input{
+	margin-top: 8px; 
+	margin-bottom: 8px;
+
+}
+
+
+
+
+.btn{
+	margin: 0 auto;
+	width:150px; 
+}
+
+//FOOTER
+footer{
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+  	color: white;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+	/*background: linear-gradient(to right, hsl(227deg 65% 43%), hsl(47deg 99% 54%));*/
+    background: #002859;
+}
+
+//iconos
+.icon1 ul{
+	list-style-type: none;
+}
+#tel{
+	margin-left: 11px;
+}
+#map{
+	margin-left: 12px;
+}
+#mail{
+	margin-left: 5px;
+}
+
+
+.icon1 li{
+	left: 45px;
+	top: 20px;
+	margin: 2px;
+	margin-top: 10px;
+	color: white;
+}
+
+.iconos li{
+	display: inline-block;
+	margin: 5px;
+	margin-top: 5px;
+}
+/*
+.iconosposition{
+	 position:absolute;
+  	 right: -1000px;
+  	 margin-top: 10px;
+}*/
+
+.iconos li a{
+	color: white;
+	width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    display: inline-block;
+}
+
+.iconos  li.facebook a:hover{
+	background: #4867aa;
+ 	border-radius: 4px; 
+}
+.iconos  li.twitter a:hover{
+	background: #00a2f3;
+ 	border-radius: 4px; 
+}
+.iconos  li.instagram a:hover{
+	background: #E1306C;
+ 	border-radius: 4px; 
+}
+.iconos  li.linkedin a:hover{
+	background: #0966c2;
+ 	border-radius: 4px; 
+}
+
+table { 
+	width: 100%; 
+	border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+	background: #eee; 
+  }
+  th { 
+	background: #333; 
+	color: white; 
+	font-weight: bold; 
+  }
+  td, th { 
+	padding: 6px; 
+	border: 1px solid #ccc; 
+	text-align: left; 
+  }
+
+  
+
+@media (max-width: 1000px){
+	footer .icon1,footer .copy,footer .iconosposition{
+		width: 100%;
+		position: relative;
+		text-align: center;
+		grid-auto-rows: 3; 
+	}
+	.copy {
+	    position: absolute;
+	    margin-top: 2px;
+   	    margin-left: 5%;
+	}
+	.iconos li {
+    	margin-top: 0px;
+	}
+	.iconosposition{
+	    right: -9px;	
+	}
+	footer{
+		height: 227px;
+	}
+	.main{
+		margin-bottom: 262px;
+	}
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+}

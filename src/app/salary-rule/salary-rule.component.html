@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Nomina</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href=".\assets\img\logo.png" type="image/x-icon">
+	<link rel="" type="text/css" href="">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+</head>
+
+<body class="fondo2">
+
+	<header id="login-header">
+		<div class="container-fluid row">
+			<section class="col-xs-12 col-md-2">
+				<img id="login-logo" src=".\assets\img\logo.png">
+			</section>
+			<section class="col-xs-12 col-md-10">
+				<h1>Universidad Iberoamericana del Ecuador</h1>
+			</section>
+		</div>
+	</header>
+	<nav class="menu ">
+		<ul class="nav">
+			<li class="nav-item col-12 col-sm-2" *ngFor="let nav of navMenu">
+				<a class="nav-link " [routerLink]=nav.route>{{ nav.name }}</a>
+			</li>
+		</ul>
+	</nav>
+	<br>
+	<br>
+	<div class="main container col-11 col-sm-10 col-md-9 col-lg-9">
+		<form class="login">
+			<!--target="print_popup"-->
+			<h2 class="subtitulo">NÓMINA</h2>
+
+			<br>
+			<!---
+			<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal2"
+				data-whatever="@mdo">Agregar cliente</button>
+				
+			-->
+
+			<form class="form-group row" [formGroup]="myForm2" (ngSubmit)="submit()" novalidate>
+				<label for="searchText"><b>Buscar Empleado: </b></label>
+				<div class="col-12 col-sm-9">
+					<input [(ngModel)]="searchText" formControlName="searchText" class="form-control mr-sm-2"
+						name="searchText" placeholder="Buscar por CI">
+				</div>
+				<div>
+					<div class="col-12 col-sm-6" style="margin-top: 8px;">
+						<button class="btn btn-success " [disabled]="myForm2.invalid">Generar</button>
+					</div>
+
+				</div>
+			<!--
+			<div *ngFor="let employee of employees | filter:filterPost">
+				<div class="form-group row">
+					<div class="col-12 col-sm-6">
+						<label for="nombre"><b>Nombre del empleado: </b></label>
+						<input type="text" class="form-control" name="nombre" value="{{employee.name}}" required>
+					</div>
+					<div class="col-12 col-sm-6">
+						<label for="ruc"><b>Cedula de identidad: </b></label>
+						<input type="text" class="form-control" name="ruc" required>
+					</div>
+				</div>
+
+			</div>
+		-->
+			<!---
+        <div class="form-group row">
+            <div class="col-12 col-sm-3">
+                <label for="telefono"><b>Telefono: </b></label>
+                <input type="text" class="form-control" name="telefono" >
+            </div>
+            <div class="col-12 col-sm-4">
+                <label for="direccion"><b>Direccion: </b></label>
+                <input type="text" class="form-control" name="direccion" >
+            </div>
+            <div class="col-12 col-sm-5">
+                <label for="correo"><b>Correo: </b></label>
+                <input type="text" class="form-control" name="correo" >
+                <input type="hidden" class="form-control" name="codigoCliente" >
+            </div>
+        </div>--->
+
+			<br>
+			<div class="container col-12 col-md-12 form-group row">
+				<table id="tabla" class="table table-responsive table-bordered table-hover">
+
+					<tr>
+
+						<th scope="col">CI</th>
+						<th scope="col">NOMBRES</th>
+						<th scope="col">CARGO</th>
+						<th scope="col">CORREO</th>
+						<th scope="col">SALARIO</th>
+
+					</tr>
+
+					<tbody>
+						<tr >
+							<td>{{ salaryRule.employee.ci}}</td>
+							<td>{{ salaryRule.employee.name}} {{salaryRule.employee.surname}}</td>
+							<td>{{ salaryRule.employee.position}}</td>
+							<td>{{ salaryRule.employee.email}}</td>
+							<td>{{ salaryRule.salary}}</td>
+						<tr>
+							<th colspan="4" align="right" scope="col">13ER.SUELDO</th>
+							<td>{{tercero}}</td>
+						</tr>
+						<tr>
+							<th colspan="4" align="right" scope="col">14TOSUELDO</th>
+							<td>{{cuarto}}</td>
+						</tr>
+						<tr>
+							<th colspan="4" align="right" scope="col">FONDOS RESERVA</th>
+							<td>{{fondo}}</td>
+						</tr>
+						<tr>
+							<th colspan="4" align="right" scope="col">TOTAL</th>
+							<td>{{tercero+cuarto+fondo}}</td>
+						</tr>
+						<tr>
+							<th colspan="4" align="right"><label for="aporteIEES">APORTE PERSONAL IESS </label></th>
+							<td>{{IESS}}</td>
+						</tr>
+						<tr>
+							<th colspan="4" align="right"><label for="descuento">OTROS DESCUENTOS </label></th>
+							<td>{{0.00}}</td>
+						</tr>
+						<tr>
+							<th colspan="4" align="right"><label for="totalEgresos">TOTAL EGRESOS </label></th>
+							<td>{{IESS}}</td>
+						</tr>
+						<tr>
+							<th colspan="4" align="right"><label for="totalPagar">TOTAL A PAGAR </label></th>
+							<td>{{(tercero+cuarto+fondo+salary)-IESS}}</td>
+						</tr>
+
+					<tbody>
+				</table>
+			</div>
+			
+		</form>
+			<div class=" row form-group ">
+				<div  class="col-12 col-ms-12 text-center">
+					<button  type="button"  class="btn btn-primary btn-lg btn-block">Imprimir</button>
+				</div>
+				
+			</div>
+		</form>
+	</div>
+
+	<footer>
+		<div class="container-fluid row">
+			<div class="container-right icon1">
+				<ul>
+					<li>
+						<i class="fa fa-phone" aria-hidden="true"></i>
+						<span id="tel">593 2 2903573 - 593 2 2230401</span>
+					</li>
+					<li>
+						<i class="fa fa-map-marker" aria-hidden="true"></i>
+						<span id="map">Av. 9 de Octubre N25-12 y Colón (Esq.)</span>
+					</li>
+					<li>
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+						<span id="mail">info@unibe.edu.ec</span>
+					</li>
+				</ul>
+			</div>
+			<div class="copy">
+				<span>© Universidad Iberoamerciana del Ecuador</span>
+			</div>
+			<div class="iconosposition">
+				<ul class="iconos">
+					<li class="facebook">
+						<a href="https://www.facebook.com/unibe.edu.ec/" title="Facebook" target="_blank"><i
+								class="fab fa-facebook-f"></i></a>
+					</li>
+					<li class="twitter">
+						<a href="https://twitter.com/unibe_ec?ref_src=twsrc%5Etfw&amp;ref_url=http%3A%2F%2Flocalhost%2Fjoomla%2F"
+							title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+					</li>
+					<li class="instagram">
+						<a href="https://www.instagram.com/unibe_ec/" title="YouTube" target="_blank"><i
+								class="fab fa-instagram"></i></a>
+					</li>
+					<li class="linkedin">
+						<a href="https://www.linkedin.com/school/unibe-ecuador/" title="linkedin" target="_blank"><i
+								class="fab fa-linkedin-in"></i></a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
