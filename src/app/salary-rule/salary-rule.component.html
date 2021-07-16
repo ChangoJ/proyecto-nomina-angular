@@ -33,16 +33,12 @@
 	<br>
 	<br>
 	<div class="main container col-11 col-sm-10 col-md-9 col-lg-9">
-		<form class="login">
+		<div class="login">
 			<!--target="print_popup"-->
 			<h2 class="subtitulo">NÓMINA</h2>
 
 			<br>
-			<!---
-			<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal2"
-				data-whatever="@mdo">Agregar cliente</button>
-				
-			-->
+			
 
 			<form class="form-group row" [formGroup]="myForm2" (ngSubmit)="submit()" novalidate>
 				<label for="searchText"><b>Buscar Empleado: </b></label>
@@ -54,106 +50,76 @@
 					<div class="col-12 col-sm-6" style="margin-top: 8px;">
 						<button class="btn btn-success " [disabled]="myForm2.invalid">Generar</button>
 					</div>
-
 				</div>
-			<!--
-			<div *ngFor="let employee of employees | filter:filterPost">
-				<div class="form-group row">
-					<div class="col-12 col-sm-6">
-						<label for="nombre"><b>Nombre del empleado: </b></label>
-						<input type="text" class="form-control" name="nombre" value="{{employee.name}}" required>
-					</div>
-					<div class="col-12 col-sm-6">
-						<label for="ruc"><b>Cedula de identidad: </b></label>
-						<input type="text" class="form-control" name="ruc" required>
-					</div>
+				<br>
+				<br>
+				<br>
+				<div id="pdfTable" class="container col-12 col-md-12 form-group row" #pdfTable>
+					<table  class="table table-responsive table-bordered table-hover" >
+
+						<tr>
+
+							<th scope="col">CI</th>
+							<th scope="col">NOMBRES</th>
+							<th scope="col">CARGO</th>
+							<th scope="col">CORREO</th>
+							<th scope="col">SALARIO</th>
+
+						</tr>
+
+						<tbody>
+							<tr>
+								<td>{{ salaryRule.employee.ci}}</td>
+								<td>{{ salaryRule.employee.name}} {{salaryRule.employee.surname}}</td>
+								<td>{{ salaryRule.employee.position}}</td>
+								<td>{{ salaryRule.employee.email}}</td>
+								<td>{{ salaryRule.salary}}</td>
+							<tr>
+								<th colspan="4" align="right" scope="col">13ER.SUELDO</th>
+								<td>{{tercero}}</td>
+							</tr>
+							<tr>
+								<th colspan="4" align="right" scope="col">14TOSUELDO</th>
+								<td>{{cuarto}}</td>
+							</tr>
+							<tr>
+								<th colspan="4" align="right" scope="col">FONDOS RESERVA</th>
+								<td  >{{fondo}}</td>
+							</tr>
+							<tr>
+								<th colspan="4" align="right" scope="col">TOTAL</th>
+								<td>{{tercero+cuarto+fondo}}</td>
+							</tr>
+							<tr>
+								<th colspan="4" align="right"><label for="aporteIEES">APORTE PERSONAL IESS </label></th>
+								<td>{{IESS}}</td>
+							</tr>
+							<tr>
+								<th colspan="4" align="right"><label for="descuento">OTROS DESCUENTOS </label></th>
+								<td>{{0.00}}</td>
+							</tr>
+							<tr>
+								<th colspan="4" align="right"><label for="totalEgresos">TOTAL EGRESOS </label></th>
+								<td>{{IESS}}</td>
+							</tr>
+							<tr>
+								<th colspan="4" align="right"><label for="totalPagar">TOTAL A PAGAR </label></th>
+								<td>{{(tercero+cuarto+fondo+salary)-IESS}}</td>
+							</tr>
+
+						<tbody>
+					</table>
 				</div>
 
-			</div>
-		-->
-			<!---
-        <div class="form-group row">
-            <div class="col-12 col-sm-3">
-                <label for="telefono"><b>Telefono: </b></label>
-                <input type="text" class="form-control" name="telefono" >
-            </div>
-            <div class="col-12 col-sm-4">
-                <label for="direccion"><b>Direccion: </b></label>
-                <input type="text" class="form-control" name="direccion" >
-            </div>
-            <div class="col-12 col-sm-5">
-                <label for="correo"><b>Correo: </b></label>
-                <input type="text" class="form-control" name="correo" >
-                <input type="hidden" class="form-control" name="codigoCliente" >
-            </div>
-        </div>--->
-
-			<br>
-			<div class="container col-12 col-md-12 form-group row">
-				<table id="tabla" class="table table-responsive table-bordered table-hover">
-
-					<tr>
-
-						<th scope="col">CI</th>
-						<th scope="col">NOMBRES</th>
-						<th scope="col">CARGO</th>
-						<th scope="col">CORREO</th>
-						<th scope="col">SALARIO</th>
-
-					</tr>
-
-					<tbody>
-						<tr >
-							<td>{{ salaryRule.employee.ci}}</td>
-							<td>{{ salaryRule.employee.name}} {{salaryRule.employee.surname}}</td>
-							<td>{{ salaryRule.employee.position}}</td>
-							<td>{{ salaryRule.employee.email}}</td>
-							<td>{{ salaryRule.salary}}</td>
-						<tr>
-							<th colspan="4" align="right" scope="col">13ER.SUELDO</th>
-							<td>{{tercero}}</td>
-						</tr>
-						<tr>
-							<th colspan="4" align="right" scope="col">14TOSUELDO</th>
-							<td>{{cuarto}}</td>
-						</tr>
-						<tr>
-							<th colspan="4" align="right" scope="col">FONDOS RESERVA</th>
-							<td>{{fondo}}</td>
-						</tr>
-						<tr>
-							<th colspan="4" align="right" scope="col">TOTAL</th>
-							<td>{{tercero+cuarto+fondo}}</td>
-						</tr>
-						<tr>
-							<th colspan="4" align="right"><label for="aporteIEES">APORTE PERSONAL IESS </label></th>
-							<td>{{IESS}}</td>
-						</tr>
-						<tr>
-							<th colspan="4" align="right"><label for="descuento">OTROS DESCUENTOS </label></th>
-							<td>{{0.00}}</td>
-						</tr>
-						<tr>
-							<th colspan="4" align="right"><label for="totalEgresos">TOTAL EGRESOS </label></th>
-							<td>{{IESS}}</td>
-						</tr>
-						<tr>
-							<th colspan="4" align="right"><label for="totalPagar">TOTAL A PAGAR </label></th>
-							<td>{{(tercero+cuarto+fondo+salary)-IESS}}</td>
-						</tr>
-
-					<tbody>
-				</table>
-			</div>
-			
-		</form>
+			</form>
 			<div class=" row form-group ">
-				<div  class="col-12 col-ms-12 text-center">
-					<button  type="button"  class="btn btn-primary btn-lg btn-block">Imprimir</button>
+				<div class="col-12 col-ms-12 text-center">
+					<button type="button" class="btn btn-primary btn-lg btn-block" [disabled]="myForm2.invalid"
+						(click)="downloadAsPDF()">Imprimir</button>
 				</div>
-				
+
 			</div>
-		</form>
+		</div>
 	</div>
 
 	<footer>

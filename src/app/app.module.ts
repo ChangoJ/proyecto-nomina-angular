@@ -16,6 +16,8 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
 import { UpdateSalaryRuleComponent } from './update-salary-rule/update-salary-rule.component';
 import { CreateSalaryRuleComponent } from './create-salary-rule/create-salary-rule.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

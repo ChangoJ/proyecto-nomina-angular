@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { EmployeeModel } from '../models/employee.model';
-import { EmployeeService } from '../api/employee.service';
+import { Component, OnInit , ViewChild,ElementRef} from '@angular/core';
+import {jsPDF} from 'jspdf';
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SalaryRuleModel } from '../models/salary-rule.model';
 import { SalaryRuleService } from '../api/salary-rule.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 
 @Component({
   selector: 'app-salary-rule',
   templateUrl: './salary-rule.component.html',
   styleUrls: ['./salary-rule.component.scss']
 })
+
 export class SalaryRuleComponent implements OnInit {
   static END_POINT = 'salaryRule/:ci';
   private ci: string | null = null;
@@ -30,6 +30,22 @@ export class SalaryRuleComponent implements OnInit {
 
     });
   }
+
+  
+  @ViewChild('pdfTable', {static: false}) pdfTable?: ElementRef;
+
+
+  public downloadAsPDF() {
+    
+    const pdfTable = this.pdfTable?.nativeElement;
+    const doc: jsPDF = new jsPDF("landscape", "mm", "a0");
+    doc.html(pdfTable, {
+      callback: (doc) => {
+        doc.output("dataurlnewwindow");
+      }
+   });
+  }
+
 
   navMenu = [
     {
@@ -55,28 +71,28 @@ export class SalaryRuleComponent implements OnInit {
   ];
   public sueldoBase = 400;
   public IESS = 0;
-  public salary=0;
+  public salary=0.00;
 
   calculate(): void {
     if (this.salaryRule.decimoTercero == true && this.salaryRule.salary != undefined) {
       this.tercero = this.salaryRule.salary / 12;
-      this.tercero.toFixed(2);
+      this.tercero = Math.round(this.tercero*100.0)/100.0;
     }
     if (this.salaryRule.decimoCuarto == true && this.salaryRule.salary != undefined) {
       this.cuarto = this.sueldoBase / 12;
-      this.cuarto.toFixed(2);
+      this.cuarto = Math.round(this.cuarto*100.0)/100.0;
     }
     if (this.salaryRule.fondosDeReserva == true && this.salaryRule.salary != undefined) {
       this.fondo = (this.salaryRule.salary * 8.33) / 100;
-      this.fondo.toFixed(2);
+      this.fondo = Math.round(this.fondo*100.0)/100.0;
     }
     if (this.salaryRule.salary != undefined) {
       this.IESS = (this.salaryRule.salary * 9.45)/100;
-      this.IESS.toFixed(2);
+      this.IESS = Math.round(this.IESS*100.0)/100.0;
     }
     if (this.salaryRule.salary != undefined) {
       this.salary = this.salaryRule.salary;
-      this.salary.toFixed(2);
+      this.salary = Math.round(this.salary*100.0)/100.0;
     }
   }
 
