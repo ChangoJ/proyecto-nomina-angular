@@ -71,8 +71,9 @@ export class SalaryRuleComponent implements OnInit {
   ];
   public sueldoBase = 400;
   public IESS = 0;
-  public salary=0.00;
-
+  public salary=0;
+  public total =0;
+  public totalApagar =0;
   calculate(): void {
     if (this.salaryRule.decimoTercero == true && this.salaryRule.salary != undefined) {
       this.tercero = this.salaryRule.salary / 12;
@@ -93,6 +94,15 @@ export class SalaryRuleComponent implements OnInit {
     if (this.salaryRule.salary != undefined) {
       this.salary = this.salaryRule.salary;
       this.salary = Math.round(this.salary*100.0)/100.0;
+    }
+    if (this.salaryRule.salary != undefined) {
+      this.total = (this.salary+this.tercero+this.cuarto+this.fondo);
+      this.total = Math.round(this.total*100.0)/100.0;
+      this.totalApagar = (this.total)-this.IESS;
+      this.totalApagar = Math.round(this.totalApagar*100.0)/100.0;
+    }
+    if (this.salaryRule.salary != undefined) {
+     
     }
   }
 

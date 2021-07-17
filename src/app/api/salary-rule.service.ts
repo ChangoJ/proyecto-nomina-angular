@@ -25,7 +25,6 @@ export class SalaryRuleService {
 
 
   getSalaryRuleByCi(ci: string): Observable<any> {
-    console.log(this.url+"/"+ci);
     return this.http.get(this.url + "/" + ci).pipe(
       map(response => response), catchError(error => {
         alert(error.error);
@@ -49,7 +48,7 @@ export class SalaryRuleService {
     );
   }
 
-  updateSalaryRule(ci: string, value: any): Observable<Object> {  
+  updateSalaryRule(ci: string, value: any): Observable<any> {  
     return this.http.put(this.url + "/"+ ci, value);  
   }  
 

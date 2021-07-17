@@ -35,7 +35,7 @@
   <br>
   <div class="main container-fluid col-11 col-sm-9 col-md-7 col-lg-5">
 
-    <form class="nominaForm" [formGroup]="myForm3" (ngSubmit)="submit()" novalidate>
+    <form class="nominaForm" [formGroup]="myForm3" (ngSubmit)="submit()" >
 
       <h2 class="subtitulo" >Modificar regla salarial</h2>
   <!--
@@ -99,7 +99,7 @@
       </div>
     
       <div class="row">
-        <button type="submit" name="submit" class="botonRegistro btn btn-primary" [disabled]="myForm3.invalid" required>Modificar
+        <button type="submit" name="submit" class="botonRegistro btn btn-primary" onclick="alert('La regla salarial fue editada')" required>Modificar
           Regla Salarial </button>
       </div>
     </form>

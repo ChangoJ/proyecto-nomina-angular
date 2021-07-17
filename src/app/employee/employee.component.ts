@@ -57,6 +57,7 @@ export class EmployeeComponent implements OnInit {
       if (this.employee !== null) this.employeeService.createEmployee(this.employee).subscribe(
         data => this.employee = data
       );
+      this.gotoList();
     }
     else{
       alert("Rellene todos los campos")
@@ -64,15 +65,16 @@ export class EmployeeComponent implements OnInit {
   }
 
   sync(): void {
-    if (this.ci2 !== null) this.employeeService.getEmployeeByCi(this.ci2).subscribe(
+    if (this.filterPost !== null) this.employeeService.getEmployeeByCi(this.filterPost).subscribe(
       data => this.employee = data
     );
   }
   
   filterPost = '';
-  ci2 = this.filterPost;
   
-
+  gotoList() {
+    this.router.navigate(['/employee-list']);
+  }
   
 
   ngOnInit(): void {

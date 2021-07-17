@@ -46,6 +46,7 @@ export class EmployeeListComponent implements OnInit {
       .subscribe(
           data => this.employees = data
       );
+      this.gotoList();
   }
 
    updateEmployee(ci: number){
@@ -58,10 +59,9 @@ export class EmployeeListComponent implements OnInit {
     
 
   searchText = '';
-  ci2 = this.searchText;
   
   sync(): void {
-    if (this.ci2 !== null) this.employeeService.getEmployeeByCi(this.ci2).subscribe(
+    if (this.searchText !== null) this.employeeService.getEmployeeByCi(this.searchText).subscribe(
       data => this.employees = data
     );
   }
@@ -72,6 +72,9 @@ export class EmployeeListComponent implements OnInit {
     );
   }
 
+  gotoList() {
+    window.location.reload();
+  }
 
   ngOnInit(): void {
     this.canBeActivate();

@@ -72,6 +72,7 @@ fondosDeReserva: false};
         data => this.salaryRule = data
 
       );
+      this.gotoList();
     }
     else{
       alert("Rellene todos los campos")
@@ -79,9 +80,6 @@ fondosDeReserva: false};
   }
 
  
-  
-  filterPost = '';
-  ci2 = this.filterPost;
   
 
   getEmployee(): void{
@@ -94,6 +92,9 @@ fondosDeReserva: false};
   }
   }
 
+  gotoList() {
+    this.router.navigate(['/salaryrules-list']);
+  }
  
 
   ngOnInit(): void {

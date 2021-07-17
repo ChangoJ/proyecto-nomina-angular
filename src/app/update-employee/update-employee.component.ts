@@ -102,7 +102,7 @@ export class UpdateEmployeeComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/employees']);
+    this.router.navigate(['/employee-list']);
   }
 
   onSubmit(){

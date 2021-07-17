@@ -59,12 +59,8 @@ export class UpdateSalaryRuleComponent implements OnInit {
 
 
   submit() {
-    if (this.myForm3.valid) {
       this.updateSalaryRule();
-    }
-    else{
-      alert("Rellene todos los campos")
-    }
+   
   }
 
   
@@ -101,7 +97,7 @@ export class UpdateSalaryRuleComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/salaryrules']);
+    this.router.navigate(['/salaryrules-list']);
   }
 
   onSubmit(){
