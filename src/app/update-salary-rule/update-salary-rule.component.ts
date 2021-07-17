@@ -14,7 +14,7 @@ export class UpdateSalaryRuleComponent implements OnInit {
   static END_POINT = 'salaryRule/:ci';
   private ci: string | null;
   public salaryRule: SalaryRuleModel = { employee: {} };
-
+  myForm3: FormGroup;
 
   constructor(public fb: FormBuilder, private route: ActivatedRoute, private salaryRuleService: SalaryRuleService, private router: Router) {
     this.ci = this.route.snapshot.paramMap.get('ci');
@@ -54,7 +54,6 @@ export class UpdateSalaryRuleComponent implements OnInit {
     }
 
   ];
-  myForm3: FormGroup;
 
 
 
