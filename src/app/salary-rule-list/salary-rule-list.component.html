@@ -58,7 +58,7 @@
                     </tr>
                     <tbody>
 
-                        <tr *ngFor="let salaryRule of salaryRules |filter:searchText">
+                        <tr *ngFor="let salaryRule of salaryRules | filter:searchText">
                             <td>{{ salaryRule.id}}</td>
                             <td>{{ salaryRule.employee.ci}}</td>
                             <td>{{ salaryRule.employee.name}}</td>

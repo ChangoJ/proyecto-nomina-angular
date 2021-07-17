@@ -15,6 +15,7 @@ import { SalaryRuleListComponent } from './salary-rule-list/salary-rule-list.com
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { UpdateSalaryRuleComponent } from './update-salary-rule/update-salary-rule.component';
 import { CreateSalaryRuleComponent } from './create-salary-rule/create-salary-rule.component';
+import { SalaryRuleService } from './api/salary-rule.service';
 
 
 
@@ -40,7 +41,8 @@ import { CreateSalaryRuleComponent } from './create-salary-rule/create-salary-ru
   ],
   providers: [
   AuthService,
-  EmployeeService
+  EmployeeService,
+  SalaryRuleService
   ],
   bootstrap: [AppComponent]
 })

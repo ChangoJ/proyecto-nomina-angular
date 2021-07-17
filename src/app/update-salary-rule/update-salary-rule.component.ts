@@ -12,82 +12,81 @@ import { SalaryRuleModel } from '../models/salary-rule.model';
 })
 export class UpdateSalaryRuleComponent implements OnInit {
   static END_POINT = 'salaryRule/:ci';
-  private  ci: string | null;
-  public salaryRule: SalaryRuleModel = {employee:{}};
-  public employee: EmployeeModel = {};
-  
-  constructor(public fb: FormBuilder,private route: ActivatedRoute, private salaryRuleService: SalaryRuleService,private router: Router) {
+  private ci: string | null;
+  public salaryRule: SalaryRuleModel = { employee: {} };
+
+
+  constructor(public fb: FormBuilder, private route: ActivatedRoute, private salaryRuleService: SalaryRuleService, private router: Router) {
     this.ci = this.route.snapshot.paramMap.get('ci');
     this.myForm3 = new FormGroup({
-      name:new FormControl ('', [Validators.required]),
-      apellido:new FormControl ('', [Validators.required]),
-      cedula:new FormControl('', [Validators.required, Validators.pattern('[0-9]+'), Validators.minLength(10)]),
-      codigo:new FormControl ('', [Validators.required]),
-      salario: new FormControl('', [Validators.required, Validators.min(0.00),Validators.max(50000.00)]),
-      date:new FormControl ('', [Validators.required]),
-      decimoTercero:new FormControl (),
-      decimoCuarto:new FormControl (),
-      fondosDeReserva:new FormControl (),
+      name: new FormControl('', [Validators.required]),
+      apellido: new FormControl('', [Validators.required]),
+      cedula: new FormControl('', [Validators.required, Validators.pattern('[0-9]+'), Validators.minLength(10)]),
+      codigo: new FormControl('', [Validators.required]),
+      salario: new FormControl('', [Validators.required, Validators.min(0.00), Validators.max(50000.00)]),
+      date: new FormControl('', [Validators.required]),
+      decimoTercero: new FormControl(),
+      decimoCuarto: new FormControl(),
+      fondosDeReserva: new FormControl(),
     });
   }
 
-  navMenu=[
+  navMenu = [
     {
-      name:"Nomina",
-      route:"/salaryrules"
+      name: "Nomina",
+      route: "/salaryrules"
     },
     {
-      name:"Registro de empleado",
-      route:"/employees"
+      name: "Registro de empleado",
+      route: "/employees"
     },
     {
-      name:"Busqueda de empleados",
-      route:"/employee-list"
+      name: "Busqueda de empleados",
+      route: "/employee-list"
     },
     {
-      name:"Busqueda de Nominas",
-      route:"/salaryrules-list"
+      name: "Busqueda de Nominas",
+      route: "/salaryrules-list"
     },
     {
-      name:"Cerrar sesión",
-      route:""
+      name: "Cerrar sesión",
+      route: ""
     }
-    
+
   ];
- myForm3: FormGroup;
-  
+  myForm3: FormGroup;
+
 
 
   submit() {
-      this.updateSalaryRule();
-   
+    this.updateSalaryRule();
+
   }
 
-  
-  
 
-  updateSalaryRule():void {
+
+  updateSalaryRule(): void {
     if (this.ci !== null) {
-    this.salaryRuleService.updateSalaryRule(this.ci, this.salaryRule)
-      .subscribe(data => {
-        console.log(data);
-        this.gotoList();
-      }, error => console.log(error));
+      this.salaryRuleService.updateSalaryRule(this.ci, this.salaryRule)
+        .subscribe(data => {
+          console.log(data);
+          this.gotoList();
+        }, error => console.log(error));
     }
   }
 
-  getSalaryRule(): void{
+  getSalaryRule(): void {
     if (this.ci !== null) {
-    this.salaryRuleService.getSalaryRuleByCi(this.ci)
-    .subscribe(data => {
-      console.log(data)
-      this.salaryRule = data;
-    }, error => console.log(error));
-  }
+      this.salaryRuleService.getSalaryRuleByCi(this.ci)
+        .subscribe(data => {
+          console.log(data)
+          this.salaryRule = data;
+        }, error => console.log(error));
+    }
   }
 
   ngOnInit(): void {
-    this.ci  = this.route.snapshot.paramMap.get('ci');
+    this.ci = this.route.snapshot.paramMap.get('ci');
     this.canBeActivate();
     this.getSalaryRule();
   }
@@ -100,8 +99,8 @@ export class UpdateSalaryRuleComponent implements OnInit {
     this.router.navigate(['/salaryrules-list']);
   }
 
-  onSubmit(){
-    this.updateSalaryRule();    
+  onSubmit() {
+    this.updateSalaryRule();
   }
 
 }
